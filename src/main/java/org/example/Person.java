@@ -14,7 +14,8 @@ public class Person {
     private String id;
     private String name;
     private String gender;
-    private Department department;
-    private double salary;
     private String birthDate;
+    private String Division;
+    private double salary;
+    private Department department;
 }

@@ -12,22 +12,24 @@ public class Main {
         List<Person> people = new ArrayList<>();
         List<Department> departments = new ArrayList<>();
 
-        String csvFilePath = "src/main/resources/person.csv";
+        String csvFilePath = "src/main/resources/foreign_names 2.csv";
         String line = "";
         String separator = ";";
 
         try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath))) {
+            reader.readLine();
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(separator);
                 String id = data[0];
                 String name = data[1];
                 String gender = data[2];
-                int departmentId = Integer.parseInt(data[3]);
-                double salary = Double.parseDouble(data[4]);
-                String birthDate = data[5];
+                String birthDate = data[3];
+                String division=data[4];
+                double salary = Double.parseDouble(data[5]);
 
+                int departmentId= (int) (Math.random()*100);
                 Department department = new Department(departmentId);
-                people.add(new Person(id, name, gender, department, salary, birthDate));
+                people.add(new Person(id, name, gender, birthDate,division,salary,department));
 
                 departments.add(department);
             }
